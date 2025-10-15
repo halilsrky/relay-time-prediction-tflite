@@ -1,0 +1,109 @@
+ELEKTRIK KORUMA RÖLESİ TIME TAHMİN MODELİ ANALİZ RAPORU
+============================================================
+
+Analiz Tarihi: 2025-10-15 16:01:56
+
+1. VERİ ÖZETİ
+--------------------
+Train Verisi: 626,294 kayıt
+Test Verisi: 156,574 kayıt
+Feature Sayısı: 10
+Target Değişken: TIME (Min: 0.1670, Max: 1.6413)
+
+Ftype Dağılımı:
+  Ftype 1: 580,649 adet (92.7%)
+  Ftype 2: 15,215 adet (2.4%)
+  Ftype 3: 15,215 adet (2.4%)
+  Ftype 4: 15,215 adet (2.4%)
+
+2. MODEL PERFORMANSLARI
+-------------------------
+
+Linear Regression:
+  Test R²: 0.9693
+  Test RMSE: 0.0568
+  Test MAE: 0.0404
+  Train R²: 0.9694
+  CV R²: 0.9694 ± 0.0001
+  Overfitting: +0.0002
+
+XGBoost:
+  Test R²: 0.9999
+  Test RMSE: 0.0025
+  Test MAE: 0.0018
+  Train R²: 0.9999
+  CV R²: 0.9999 ± 0.0000
+  Overfitting: +0.0000
+
+LightGBM:
+  Test R²: 0.9999
+  Test RMSE: 0.0037
+  Test MAE: 0.0028
+  Train R²: 0.9999
+  CV R²: 0.9999 ± 0.0000
+  Overfitting: +0.0000
+
+Neural Network:
+  Test R²: 1.0000
+  Test RMSE: 0.0012
+  Test MAE: 0.0008
+  Train R²: 1.0000
+  CV R²: 1.0000 ± 0.0000
+  Overfitting: +0.0000
+
+3. OVERFITTING ANALİZİ
+-------------------------
+Overfitting Kriterleri:
+  - |Train R² - Test R²| < 0.01: Overfitting YOK
+  - |Train R² - Test R²| < 0.05: Hafif Overfitting
+  - |Train R² - Test R²| >= 0.05: Ciddi Overfitting
+
+  Linear Regression: ✓ Overfitting YOK (+0.0002)
+  XGBoost: ✓ Overfitting YOK (+0.0000)
+  LightGBM: ✓ Overfitting YOK (+0.0000)
+  Neural Network: ✓ Overfitting YOK (+0.0000)
+
+4. EN İYİ MODEL
+---------------
+Model: Neural Network
+Test R²: 1.0000
+Test RMSE: 0.0012
+Overfitting: +0.0000
+
+5. TMS=0.1 SPESİFİK ANALİZ
+-------------------------
+Test kayıtları: 30578 adet
+Gerçek TIME aralığı: 0.1706 - 0.5298
+
+Linear Regression:
+  R²: -0.5942
+  Tahmin aralığı: -0.0985 - 0.6863
+  Aralık doğruluğu: 0.4256
+
+XGBoost:
+  R²: 0.9990
+  Tahmin aralığı: 0.1716 - 0.5221
+  Aralık doğruluğu: 0.0087
+
+LightGBM:
+  R²: 0.9983
+  Tahmin aralığı: 0.1715 - 0.5206
+  Aralık doğruluğu: 0.0101
+
+Neural Network:
+  R²: 0.9989
+  Tahmin aralığı: 0.1717 - 0.5217
+  Aralık doğruluğu: 0.0093
+
+6. SONUÇ VE ÖNERİLER
+--------------------
+✓ Modellerde overfitting tespit edilmedi.
+✓ Tüm modeller genelleme yeteneğine sahip.
+
+✓ En yüksek performanslı model: Neural Network
+✓ Prodüksiyon için önerilen model: Neural Network
+✓ Çok yüksek tahmin doğruluğu (R² > 0.99)
+✓ Model elektriksel röle TIME hesabını başarıyla öğrenmiş
+
+✓ Modeller 'model_outputs' klasöründe kaydedildi.
+✓ Analiz tamamlandı.
