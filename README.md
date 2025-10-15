@@ -218,11 +218,3 @@ TfLiteModel* model = TfLiteModelCreateFromFile("tensorflow_nn_model.tflite");
 TfLiteInterpreter* interpreter = TfLiteInterpreterCreate(model, nullptr);
 // ... tahmin işlemleri
 ```
-
-## 📞 Destek
-
-Bu proje elektrik koruma röleleri için geliştirilmiş özel bir TIME tahmin sistemidir. STM32MP1 embedded sistemlerde çalışacak şekilde optimize edilmiştir.
-
-**Geliştirici:** Halil
-**Proje Tarihi:** Ekim 2025
-**Platform:** STM32MP1 / Linux
